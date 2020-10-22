@@ -1,0 +1,208 @@
+using System.Collections;
+using System.Collections.Generic;
+using System;
+using UnityEngine;
+using UnityEngine.UI;
+
+
+public class ActivaBoton : MonoBehaviour
+{
+   
+	public Text MiTexto;
+	public Text MiTextoX;
+	public Text MiTextoY;
+	public Text MiTextoCA;
+   
+
+    private void Awake()
+    {
+        
+    }
+
+   
+ 
+   public void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+      
+    }
+	
+	public void ReiniciarPosicion()
+	{
+	Vector3 PosiciondelInicio;
+	   PosiciondelInicio.x = -1.15f;
+		PosiciondelInicio.y = 1.32f;
+		PosiciondelInicio.z = -3.1f;
+		Vector3 NuevaMedida;
+		Vector3 PosicionPuntoFinal;
+		NuevaMedida.y = 1f;
+		if(Convert.ToInt32(MiTexto.text) < 15 ) {
+		MiTexto.text = (Convert.ToInt32(MiTexto.text)+ 1).ToString();
+		
+		} else {
+		MiTexto.text = "1";	
+		}
+		
+		
+		GameObject.FindGameObjectWithTag("Player").transform.position = PosiciondelInicio;
+		
+		if(Convert.ToInt32(MiTexto.text) == 1 ) {
+			NuevaMedida.x = 0.8f;
+			NuevaMedida.y = 0.8f;
+			NuevaMedida.z = 0.8f;
+			MiTextoX.text = "4";
+			MiTextoY.text = "4";
+			GameObject.FindGameObjectWithTag("Player").transform.localScale = NuevaMedida;
+		}
+		
+		
+		if(Convert.ToInt32(MiTexto.text) == 2 ) {
+			NuevaMedida.x = 0.4f;
+			NuevaMedida.y = 0.2f;
+			NuevaMedida.z = 0.8f;
+			MiTextoX.text = "2";
+			MiTextoY.text = "1";
+			GameObject.FindGameObjectWithTag("Player").transform.localScale = NuevaMedida;
+		}
+
+		if(Convert.ToInt32(MiTexto.text) == 3 ) {
+			NuevaMedida.x = 0.6f;
+			NuevaMedida.y = 0.2f;
+			NuevaMedida.z = 0.8f;
+			MiTextoX.text = "3";
+			MiTextoY.text = "1";
+			GameObject.FindGameObjectWithTag("Player").transform.localScale = NuevaMedida;
+		}
+		
+	
+		if(Convert.ToInt32(MiTexto.text) == 4 ) {
+			NuevaMedida.x = 1.4f;
+			NuevaMedida.y = 1.6f;
+			NuevaMedida.z = 0.8f;
+			MiTextoX.text = "7";
+			MiTextoY.text = "8";
+			GameObject.FindGameObjectWithTag("Player").transform.localScale = NuevaMedida;
+		}
+	
+		if(Convert.ToInt32(MiTexto.text) == 5 ) {
+			NuevaMedida.x = 1.8f;
+			NuevaMedida.y = 1.8f;
+			NuevaMedida.z = 0.8f;
+			MiTextoX.text = "9";
+			MiTextoY.text = "9";
+			GameObject.FindGameObjectWithTag("Player").transform.localScale = NuevaMedida;
+		}
+
+		if(Convert.ToInt32(MiTexto.text) == 6 ) {
+			NuevaMedida.x = 1.6f;
+			NuevaMedida.y = 1.8f;
+			NuevaMedida.z = 0.8f;
+			MiTextoX.text = "8";
+			MiTextoY.text = "9";
+			GameObject.FindGameObjectWithTag("Player").transform.localScale = NuevaMedida;
+		}
+		
+		
+		if(Convert.ToInt32(MiTexto.text) == 7 ) {
+			NuevaMedida.x = 0.4f;
+			NuevaMedida.y = 0.4f;
+			NuevaMedida.z = 0.8f;
+			MiTextoX.text = "2";
+			MiTextoY.text = "2";
+			GameObject.FindGameObjectWithTag("Player").transform.localScale = NuevaMedida;
+		}
+
+		if(Convert.ToInt32(MiTexto.text) == 8 ) {
+			NuevaMedida.x = 0.2f;
+			NuevaMedida.y = 0.4f;
+			NuevaMedida.z = 0.8f;
+			MiTextoX.text = "1";
+			MiTextoY.text = "2";
+			GameObject.FindGameObjectWithTag("Player").transform.localScale = NuevaMedida;
+		}
+	
+		if(Convert.ToInt32(MiTexto.text) == 9 ) {
+			NuevaMedida.x = 0.8f;
+			NuevaMedida.y = 1.0f;
+			NuevaMedida.z = 0.8f;
+			MiTextoX.text = "4";
+			MiTextoY.text = "5";
+			GameObject.FindGameObjectWithTag("Player").transform.localScale = NuevaMedida;
+		}
+
+		if(Convert.ToInt32(MiTexto.text) == 10 ) {
+			NuevaMedida.x = 1.2f;
+			NuevaMedida.y = 1.2f;
+			NuevaMedida.z = 0.8f;
+			MiTextoX.text = "6";
+			MiTextoY.text = "6";
+			GameObject.FindGameObjectWithTag("Player").transform.localScale = NuevaMedida;
+		}
+		if(Convert.ToInt32(MiTexto.text) == 11 ) {
+			NuevaMedida.x = 0.4f;
+			NuevaMedida.y = 0.6f;
+			NuevaMedida.z = 0.8f;
+			MiTextoX.text = "2";
+			MiTextoY.text = "3";
+			GameObject.FindGameObjectWithTag("Player").transform.localScale = NuevaMedida;
+		}
+		
+		if(Convert.ToInt32(MiTexto.text) == 12 ) {
+			NuevaMedida.x = 1.0f;
+			NuevaMedida.y = 1.2f;
+			NuevaMedida.z = 0.8f;
+			MiTextoX.text = "5";
+			MiTextoY.text = "6";
+			GameObject.FindGameObjectWithTag("Player").transform.localScale = NuevaMedida;
+		}
+		
+		if(Convert.ToInt32(MiTexto.text) == 13 ) {
+			NuevaMedida.x = 1.4f;
+			NuevaMedida.y = 1.4f;
+			NuevaMedida.z = 0.8f;
+			MiTextoX.text = "7";
+			MiTextoY.text = "7";
+			GameObject.FindGameObjectWithTag("Player").transform.localScale = NuevaMedida;
+		}
+
+		if(Convert.ToInt32(MiTexto.text) == 14 ) {
+			NuevaMedida.x = 0.2f;
+			NuevaMedida.y = 0.2f;
+			NuevaMedida.z = 0.8f;
+			MiTextoX.text = "1";
+			MiTextoY.text = "1";
+			GameObject.FindGameObjectWithTag("Player").transform.localScale = NuevaMedida;
+		}
+
+		if(Convert.ToInt32(MiTexto.text) == 15 ) {
+			NuevaMedida.x = 1.8f;
+			NuevaMedida.y = 1.6f;
+			NuevaMedida.z = 0.8f;
+			MiTextoX.text = "9";	
+			MiTextoY.text = "8";
+			GameObject.FindGameObjectWithTag("Player").transform.localScale = NuevaMedida;
+		}
+		
+		
+
+	
+		PosiciondelInicio.y = ((1.32f - 0.4f )+  (NuevaMedida.y/2)) ;
+		
+		
+		PosicionPuntoFinal = GameObject.FindGameObjectWithTag("Punto").transform.position;
+		PosicionPuntoFinal.y = PosiciondelInicio.y;
+		
+		
+		
+		GameObject.FindGameObjectWithTag("Punto").transform.position = PosicionPuntoFinal;
+		GameObject.FindGameObjectWithTag("Player").transform.position = PosiciondelInicio;
+		
+		
+	}
+	
+}
