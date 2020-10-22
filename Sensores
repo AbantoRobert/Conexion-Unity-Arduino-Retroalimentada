@@ -1,0 +1,93 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using System.IO.Ports;
+
+public class Sensores : MonoBehaviour
+{
+	
+	
+    SerialPort arduinoPort = new SerialPort("COM2");
+	
+	SerialPort arduinoPort2 = new SerialPort("COM5");
+	
+	public Text Recibir;
+	
+	string valor;
+	string[] strings = new string[9];
+	
+    // Start is called before the first frame update
+    void Start()
+    {
+           arduinoPort.Open();
+        arduinoPort.ReadTimeout = 50;
+		arduinoPort.BaudRate = 9600;
+        arduinoPort.Parity = Parity.None;
+        arduinoPort.StopBits = StopBits.One;
+        arduinoPort.DataBits = 8;
+        arduinoPort.Handshake = Handshake.None;
+		
+		
+		  arduinoPort2.Open();
+        arduinoPort2.ReadTimeout = 50;
+		
+		arduinoPort2.BaudRate = 9600;
+        arduinoPort2.Parity = Parity.None;
+        arduinoPort2.StopBits = StopBits.One;
+        arduinoPort2.DataBits = 8;
+        arduinoPort2.Handshake = Handshake.None;
+	
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        RaycastHit hit;
+		string valor;
+		valor = "";
+
+		 if (arduinoPort2.IsOpen)
+        {
+            try
+            {
+
+				string myString = arduinoPort2.ReadLine(); 
+				Recibir.text = myString;
+			}
+		 catch
+            {
+ 
+            }
+ 
+		}
+		
+				
+	    strings[0] = "SENSORN9";
+		strings[1] = "SENSORN8";
+		strings[2] = "SENSORN7";
+		strings[3] = "SENSORN6";
+		strings[4] = "SENSORN5";
+		strings[5] = "SENSORN4";
+		strings[6] = "SENSORN3";
+		strings[7] = "SENSORN2";
+		strings[8] = "SENSORN1";
+        
+        
+        foreach(string item in strings)
+        {
+           if (Physics.Raycast(GameObject.FindGameObjectWithTag(item).transform.position, Vector3.right, out hit, 13f))
+				{
+					
+					valor = valor + "1";
+					
+				} else {
+				valor = valor + "0";
+			}
+        }
+		
+	
+	arduinoPort.WriteLine(valor);
+	
+}}
+
