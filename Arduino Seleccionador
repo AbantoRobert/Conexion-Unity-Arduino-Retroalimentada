@@ -1,0 +1,56 @@
+char caracter;
+float longitud;
+String data="";
+int PEQUE=3;
+int MED=4;
+int GRA=5;
+String enviar;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(PEQUE,OUTPUT);//Led de la caja pequeña
+  pinMode(MED,OUTPUT);//Led de la caja mediana
+  pinMode(GRA,OUTPUT);//Led de la caja grande
+}
+
+void loop() {
+
+  while (Serial.available())//Mientras que se reconozca alguna comando por el puerto serial
+   {
+      char character = Serial.read();//Ingresar un caracter por el puerto serial
+      if (character != '\n')//Si el caracter no es el "Vacio"
+      {
+         data.concat(character);//Concatenan los caracteres hasta que el caracter se quede vacio
+      }
+      else
+      {
+         delay(20);
+         longitud=(data).toFloat();//Conversion de cadena a numero
+         //Clasificacion de cajas segun la longitud         
+         
+         if(longitud>0 && longitud <1000){
+             digitalWrite(PEQUE,HIGH);
+             digitalWrite(MED,LOW);
+             digitalWrite(GRA,LOW);
+             enviar="CHICA";
+         }
+
+            if(longitud>1000 && longitud <1000000){
+             digitalWrite(PEQUE,LOW);
+             digitalWrite(MED,HIGH);
+             digitalWrite(GRA,LOW);
+            enviar="MEDIANA";
+         }
+
+          if(longitud>1000000 && longitud <1000000000){
+             digitalWrite(PEQUE,LOW);
+             digitalWrite(MED,LOW);
+             digitalWrite(GRA,HIGH);
+            enviar="GRANDE";
+             
+          }
+          Serial.println(enviar);
+          data = "";//Limpieza de los datos
+      }
+   }
+}
